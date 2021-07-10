@@ -13,6 +13,26 @@ const routes = [
     path: '/about',
     name: 'About',
     component: () => import('../views/About.vue')
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import('../views/Login.vue')
+  },
+  {
+    path: '/profile',
+    name: 'Profile',
+    component: () => import('../views/Profile.vue')
+  },
+  {
+    path: '/panel-org',
+    name: 'PanelOrg',
+    component: () => import('../views/PanelOrg.vue')
+  },
+  {
+    path: '/worker/:phone',
+    name: 'PanelOrg',
+    component: () => import('../views/Worker.vue')
   }
 ]
 

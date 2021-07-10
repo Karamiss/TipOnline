@@ -17,12 +17,12 @@ Vue.use(Vuelidate)
 
 Vue.config.productionTip = false
 
-Vue.prototype.$usersApi = process.env.USERS_SERVICE_API
+Vue.prototype.$usersApi = process.env.USERS_SERVICE_API || 'http://localhost:8937'
 
 Vue.prototype.$http = axios;
-const token = localStorage.getItem("user-token");
+const token = localStorage.getItem("tipon-token");
 if (token) {
-  Vue.prototype.$http.defaults.headers.common["Authorization"] = token;
+  Vue.prototype.$http.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 }
 axios.interceptors.response.use(
   response => {
@@ -32,7 +32,7 @@ axios.interceptors.response.use(
     if (error.response !== undefined) {
       if (error.response.status === 401) {
         console.log("Неавторизован ...");
-        localStorage.removeItem("user-token");
+        localStorage.removeItem("tipon-token");
         router.push("/");
       }
     }

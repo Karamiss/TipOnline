@@ -1,7 +1,5 @@
 <template>
-  <div class="home">
-    <h1>Home</h1>
-  </div>
+  <div class="spinner-grow text-dark center" role="status"></div>
 </template>
 
 <script>
@@ -12,3 +10,11 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.center {
+  position: absolute;
+  top: 48%;
+  left: 48%;
+}
+</style>
